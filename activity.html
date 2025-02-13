@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AUDIO AURA</title>
+      <link rel="shortcut icon" href="favicon.ico" type="image/svg+xml">
+    <style>
+        body {
+            background-color: #000033;
+            color: white;
+            font-family: 'Times New Roman', serif;
+            text-align: center;
+            margin: 0;
+            padding: 20px;
+        }
+        h1, h2, p {
+            margin: 20px 0;
+        }
+        .orbitron {
+            font-family: 'Orbitron', sans-serif; 
+            font-weight: 700;
+            text-shadow: 0 0 10px white;
+        }
+        .activity {
+            margin: 10px;
+            padding: 10px 20px;
+            border: 2px solid white;
+            background-color: transparent;
+            color: white;
+            font-size: 16px;
+            cursor: pointer;
+            display: inline-block;
+            transition: 0.3s;
+            border-radius: 5px;
+        }
+        .activity:hover {
+            background-color: white;
+            color: #000033;
+        }
+        .hidden {
+            display: none;
+        }
+        #progress {
+            margin-top: 20px;
+            width: 80%;
+            max-width: 400px;
+        }
+        @media (max-width: 600px) {
+            .activity {
+                display: block;
+                width: 80%;
+                margin: 10px auto;
+            }
+        }
+    </style>
+</head>
+<body>
+    <h1>Welcome to</h1>
+    <h2 class="orbitron">AUDIO AURA</h2>
+    <p>What are you up to now?</p>
+    
+    <button class="activity" onclick="generatePlaylist('play.html')">Romantic</button>
+    <button class="activity" onclick="generatePlaylist('play.html')">Exercising</button>
+    <button class="activity" onclick="generatePlaylist('play.html')">Relaxing</button>
+    <button class="activity" onclick="generatePlaylist('play.html')">Traveling</button>
+    <button class="activity" onclick="generatePlaylist('play.html')">Cooking</button>
+    <button class="activity" onclick="generatePlaylist('play.html')">Other</button>
+    
+    <div id="message" class="hidden">Alright! Generating a Playlist for you!</div> 
+    <progress id="progress" class="hidden" value="0" max="100"></progress>
+
+    <script>
+        function generatePlaylist(url) {
+            document.getElementById('message').classList.remove('hidden');
+            document.getElementById('progress').classList.remove('hidden');
+            let progressBar = document.getElementById('progress');
+            let width = 0;
+            let interval = setInterval(frame, 50);
+            function frame() {
+                if (width >= 100) {
+                    clearInterval(interval);
+                    window.location.href = url;
+                } else {
+                    width++;
+                    progressBar.value = width;
+                }
+            }
+        } 
+    </script>
+</body>
+</html>
