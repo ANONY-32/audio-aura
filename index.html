@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        body {
+            background-color: #000033;
+            color: white;
+            font-family: 'Times New Roman', serif;
+            text-align: center;
+            margin: 0;
+            padding: 0;
+        }
+
+        h1, h2, h3 {
+            margin: 20px 0;
+        }
+
+        #audio-aura {
+            font-size: 2em;
+            text-shadow: 0 0 10px #FFF;
+            font-family: 'Orbitron', sans-serif;
+        }
+
+        .hidden {
+            display: none;
+        }
+
+        input, button {
+            margin-top: 20px;
+            padding: 10px;
+            font-size: 1em;
+            background-color: #333;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        #button-group {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 10px;
+        }
+
+        button {
+            min-width: 100px;
+        }
+
+        .responsive-image {
+            max-width: 100%;
+            height: auto;
+            margin-top: 20px;
+        }
+
+        @media (max-width: 600px) {
+            body {
+                font-size: 14px;
+            }
+            #audio-aura {
+                font-size: 1.5em;
+            }
+            input, button {
+                width: 80%;
+            }
+            #button-group {
+                flex-direction: column;
+                align-items: center;
+            }
+        }
+    </style>
+    <title>Audio Aura</title>
+    <link rel="shortcut icon" href="favicon.ico" type="image/svg+xml">
+</head>
+<body>
+    <h1>Welcome to</h1>
+    <h2 id="audio-aura">AUDIO AURA</h2>
+    <h3>Where Audio resonates with your Aura.</h3>
+
+    <button id="start-button">Start</button>
+
+    <div id="name-input-section" class="hidden">
+        <p>What can we call you?:</p>
+        <input type="text" id="name-input" placeholder="Enter your name">
+        <button id="next-button">Next</button>
+    </div>
+
+    <div id="greeting-section" class="hidden">
+        <h3 id="greeting"></h3>
+        <div id="button-group" class="hidden">
+            <button onclick="window.location.href='activity.html'">Happy</button> 
+            <button onclick="window.location.href='activity.html'">Sad</button> 
+            <button onclick="window.location.href='activity.html'">Relaxed</button> 
+            <button onclick="window.location.href='activity.html'">Romantic</button> 
+            <button onclick="window.location.href='activity.html'">Other</button>  
+        </div>
+    </div>
+
+    <script>
+        document.getElementById('start-button').addEventListener('click', function() {
+            document.getElementById('start-button').classList.add('hidden');
+            document.getElementById('name-input-section').classList.remove('hidden');
+        });
+
+        document.getElementById('next-button').addEventListener('click', function() {
+            var name = document.getElementById('name-input').value;
+            document.getElementById('name-input-section').classList.add('hidden');
+            document.getElementById('greeting').textContent = 'Hello ' + name + '!';
+            document.getElementById('greeting-section').classList.remove('hidden');
+            document.getElementById('button-group').classList.remove('hidden');
+        });
+    </script>
+</body>
+</html>
