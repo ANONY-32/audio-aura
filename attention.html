@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Attention</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="atten.css">
+    <style>
+        body {
+            background-color: black;
+            color: white;
+            text-align: center;
+            font-family: Arial, sans-serif;
+        }
+
+        h1 {
+            color: red;
+            font-size: 60px;
+            text-shadow: 0 0 10px red, 0 0 20px red, 0 0 30px darkred;
+        }
+
+        h3 {
+            font-size: 22px;
+            animation: pulseText 2s infinite alternate;
+        }
+
+        h6 {
+            font-size: 14px;
+            opacity: 0.7;
+        }
+
+        hr {
+            border: 2px solid white;
+            width: 0;
+            animation: expandLine 1.5s forwards;
+        }
+
+        @keyframes pulseText {
+            0% { text-shadow: 0 0 10px white; }
+            100% { text-shadow: 0 0 20px white; }
+        }
+
+        @keyframes expandLine {
+            from { width: 0; }
+            to { width: 50%; }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="w3-display-middle">
+        <h1 class="animate__animated animate__fadeInDown animate__bounce"><code>Attention</code></h1>
+        <hr class="w3-border-white">
+        <h3 class="animate__animated animate__slideInRight">You have used this website 3 times already.<br> To continue, please make a payment.</h3>
+        <h6 class="animate__animated animate__fadeIn animate__delay-2s">@Copyright Audio Aura 2025</h6>
+    </div>
+</body>
+</html>
